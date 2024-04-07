@@ -1,0 +1,10 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  # - admin-rolebinding.yaml
+  - dashboard-deploy.yaml
+  - dashboard-route.yaml
+  - dashboard-sa.yaml
+  - dashboard-svc.yaml

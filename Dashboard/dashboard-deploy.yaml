@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: dashboard
+    app.kubernetes.io/component: dashboard
+    app.kubernetes.io/instance: dashboard
+    app.kubernetes.io/name: dashboard
+    app.kubernetes.io/part-of: rollouts-dashboard
+  name: dashboard
+
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: dashboard
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        openshift.io/generated-by: OpenShiftWebConsole
+      labels:
+        app: dashboard
+        deployment: dashboard
+    spec:
+      containers:
+        - command: 
+            - /bin/bash
+          args:
+            - "-c"
+            - kubectl argo rollouts dashboard -n rollout-prod
+          image: quay.io/openshiftdemos/rollouts-terminal-tooling:1.11
+          imagePullPolicy: Always
+          name: rollouts-dashboard
+          resources: {}
+          ports:
+            - containerPort: 3100
+              protocol: TCP
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      terminationGracePeriodSeconds: 30
+      serviceAccountName: dashboard
