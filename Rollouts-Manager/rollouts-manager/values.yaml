@@ -1,4 +1,4 @@
-# Default values for rollouts-dashboard.
+# Default values for rollouts-manager.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
@@ -13,7 +13,7 @@ image:
   tag: "1.11"
 
 imagePullSecrets: []
-nameOverride: "dashboard"
+nameOverride: "rollouts-manager"
 fullnameOverride: ""
 
 serviceAccount:
@@ -23,7 +23,7 @@ serviceAccount:
   annotations: {}
   # The name of the service account to use.
   # If not set and create is true, a name is generated using the fullname template
-  name: "dashboard"
+  name: "rollouts-manager"
 
 service:
   type: ClusterIP
@@ -38,7 +38,8 @@ route:
     insecureEdgeTerminationPolicy: Redirect
     termination: edge
 
-resources: {}
+resources:
+  {}
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
@@ -50,7 +51,6 @@ resources: {}
   #   cpu: 100m
   #   memory: 128Mi
 
-
 nodeSelector: {}
 
 tolerations: []
@@ -59,10 +59,12 @@ affinity: {}
 
 podAnnotations: {}
 
-podSecurityContext: {}
+podSecurityContext:
+  {}
   # fsGroup: 2000
 
-securityContext: {}
+securityContext:
+  {}
   # capabilities:
   #   drop:
   #   - ALL
