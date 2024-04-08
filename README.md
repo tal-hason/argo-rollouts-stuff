@@ -45,6 +45,14 @@ in the value file here is the major keys:
 
 under examples/blugreen/base
 
+```Bash
+oc apply -k examples/blugreen/base
+```
+
+```Bash
+yq -i '.spec.template.spec.containers[].image |= sub(":.*", ":<<new_color>>") examples/blugreen/base/rollout.yaml'
+```
+
 change the image tag to the following colors to test how the rollout works.
 
 1. blue (default)
