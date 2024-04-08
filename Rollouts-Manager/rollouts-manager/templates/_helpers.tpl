@@ -63,9 +63,9 @@ Create the name of the service account to use
 
 
 {{- define "dashboard.host" -}}
-{{ include "rollouts-manager.fullname" . }}.{{ .Release.Namespace }}.{{ .Values.route.clusterDomain }}
+{{ include "rollouts-manager.fullname" . }}-{{ .Release.Namespace }}-{{ .Values.route.clusterDomain }}
 {{- end }}
 
 {{- define "dashboard.link" -}}
-'https://{{ include "rollouts-manager.fullname" . }}.{{ .Release.Namespace }}.{{ .Values.route.clusterDomain }}'
+'https://{{ include "rollouts-manager.fullname" . }}-{{ .Release.Namespace }}-{{ .Values.route.clusterDomain }}'
 {{- end }}
