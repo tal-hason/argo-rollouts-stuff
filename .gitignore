@@ -41,3 +41,4 @@ package*
 node_modules
 .firebaserc
 .firebase
+*.tgz
