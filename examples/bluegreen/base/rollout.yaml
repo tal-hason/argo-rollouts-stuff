@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: rollouts-demo
-        image: quay.io/openshiftdemos/rollouts-demo:green
+        image: quay.io/openshiftdemos/rollouts-demo:orange
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
