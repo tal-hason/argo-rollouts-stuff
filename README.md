@@ -38,3 +38,18 @@ in the value file here is the major keys:
 | podAnnotations                     | {}                                      | Annotations for the deployment pods                                                                       |
 | podSecurityContext                 | {}                                      | Security context for the deployment pods                                                                 |
 | securityContext                    | {}                                      | Security context for the containers in the deployment                                                     |
+
+---
+
+## Under exmaples there is a tested and working example of a blue-green rollout deployment
+
+under examples/blugreen/base
+
+change the image tag to the following colors to test how the rollout works.
+
+1. blue (default)
+2. green
+3. orange
+4. purple
+5. yellow
+

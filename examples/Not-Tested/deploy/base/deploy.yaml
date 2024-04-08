@@ -14,7 +14,8 @@ spec:
         app: rollouts-demo
     spec:
       containers:
-      - image: quay.io/openshiftdemos/rollouts-demo:blue
+      - image: quay.io/thason/rollouts:blue
+        resources: {}
         imagePullPolicy: IfNotPresent
         name: rollouts-demo
         ports:
