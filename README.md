@@ -2,7 +2,7 @@
 
 ## this enables you to quickly deploy argo-Rollouts & rollout-manager and Dashboard via a Helm Chart
 
-to use the helm chart you can use it dirctly from the ghcr.io or pull it to your local station(Wokring on Openshift)
+to use the helm chart you can use it dirctly from the ghcr.io or pull it to your local station(Working on Openshift)
 
 ```Bash
 helm pull oci://ghcr.io/tal-hason/argo-rollouts-stuff/helm/rollouts-manager:0.1.1
