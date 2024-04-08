@@ -8,7 +8,6 @@ metadata:
     app.kubernetes.io/name: dashboard
     app.kubernetes.io/part-of: rollouts-dashboard
   name: dashboard
-
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
@@ -34,11 +33,20 @@ spec:
             - /bin/bash
           args:
             - "-c"
-            - kubectl argo rollouts dashboard -n rollout-prod
+            - kubectl argo rollouts dashboard -n ${NAMESPACE}
           image: quay.io/openshiftdemos/rollouts-terminal-tooling:1.11
           imagePullPolicy: Always
           name: rollouts-dashboard
-          resources: {}
+          resources:
+            requests:
+              memory: 50Mi
+              cpu: 50m
+            limits:
+              cpu: 500m
+              memory: 150Mi
+          env:
+            - name: NAMESPACE
+              value: rollout-prod
           ports:
             - containerPort: 3100
               protocol: TCP

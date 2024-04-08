@@ -3,6 +3,7 @@ kind: Route
 metadata:
   name: active
 spec:
+  host: active-route-rollouts-prod.apps-crc.testing
   port:
     targetPort: http
   tls:
@@ -17,6 +18,7 @@ kind: Route
 metadata:
   name: preview
 spec:
+  host: preview-route-rollouts-prod.apps-crc.testing
   port:
     targetPort: http
   tls:

@@ -11,7 +11,6 @@ metadata:
     app.kubernetes.io/part-of: rollouts-dashboard
     app.openshift.io/runtime-version: "1.10"
   name: dashboard
-
 spec:
   port:
     targetPort: 3100-tcp
