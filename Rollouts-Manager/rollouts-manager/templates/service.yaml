@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: { { include "rollouts-manager.fullname" . } }
-  labels: { { - include "rollouts-manager.labels" . | nindent 4 } }
+  name: {{ include "rollouts-manager.fullname" . }}
+  labels: {{ - include "rollouts-manager.labels" . | nindent 4 }}
 spec:
-  type: { { .Values.service.type } }
+  type: {{ .Values.service.type }}
   ports:
-    - port: { { .Values.service.port } }
-      targetPort: { { .Values.service.portName } }
+    - port: {{ .Values.service.port }}
+      targetPort: {{ .Values.service.portName }}
       protocol: TCP
-      name: { { .Values.service.portName } }
-  selector: { { - include "rollouts-manager.selectorLabels" . | nindent 4 } }
+      name: {{ .Values.service.portName }}
+  selector: {{ - include "rollouts-manager.selectorLabels" . | nindent 4 }}
