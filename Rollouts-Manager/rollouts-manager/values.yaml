@@ -13,7 +13,7 @@ image:
   tag: "1.11"
 
 imagePullSecrets: []
-nameOverride: "rollouts-manager"
+nameOverride: ""
 fullnameOverride: ""
 
 serviceAccount:
@@ -32,8 +32,7 @@ service:
 
 route:
   enabled: true
-  host:
-    # fdqn:
+  clusterDomain: apps-crc.testing
   tls:
     insecureEdgeTerminationPolicy: Redirect
     termination: edge

@@ -60,3 +60,12 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+
+{{- define "dashboard.host" -}}
+{{ include "rollouts-manager.fullname" . }}.{{ .Release.Namespace }}.{{ .Values.route.clusterDomain }}
+{{- end }}
+
+{{- define "dashboard.link" -}}
+'https://{{ include "rollouts-manager.fullname" . }}.{{ .Release.Namespace }}.{{ .Values.route.clusterDomain }}'
+{{- end }}

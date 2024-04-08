@@ -5,10 +5,10 @@ metadata:
   name: {{ include "rollouts-manager.fullname" . }}
   labels:
     {{- include "rollouts-manager.labels" . | nindent 4 }}
+  annotations:
+    link.argocd.argoproj.io/external-link: {{ include "dashboard.link" . }}
 spec:
-  {{ if .Values.route.host }}
-  host: {{ .Values.route.host.fqdn }}
-  {{- end -}}
+  host: {{ include "dashboard.host" . }}
   port:
     targetPort: {{ .Values.service.portName }}
   tls:
