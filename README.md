@@ -53,6 +53,8 @@ oc apply -k examples/blugreen/base
 yq -i '.spec.template.spec.containers[].image |= sub(":.*", ":<<new_color>>") examples/blugreen/base/rollout.yaml'
 ```
 
+**deploy both Rollout-Manager and the Blue-Green to the same K8S namespace.**
+
 change the image tag to the following colors to test how the rollout works.
 
 1. blue (default)
