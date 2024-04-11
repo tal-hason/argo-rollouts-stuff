@@ -17,6 +17,14 @@ spec:
       - name: rollouts-demo
         image: quay.io/thason/rollouts:purple
         imagePullPolicy: IfNotPresent
+        resources:
+          requests:
+            memory: 250Mi
+            cpu: 250m
+          limit:
+            memory:
+              memory: 500Mi
+              cpu: 500m
         ports:
         - containerPort: 8080
   strategy:
