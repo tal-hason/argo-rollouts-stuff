@@ -10,7 +10,7 @@ image:
   name: rollouts-terminal-tooling
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "1.11"
+  tag: "summit"
 
 imagePullSecrets: []
 nameOverride: ""
